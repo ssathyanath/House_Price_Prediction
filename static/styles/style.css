@@ -65,7 +65,8 @@ p {
 
 .maxdata th {
   width: 300px;
-  background-color:#ffffff;
+  table-layout: fixed;
+  background-color:#89e68d;
   color:	#040d13;
   font-size: large;
 }

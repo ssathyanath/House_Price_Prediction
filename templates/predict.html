@@ -51,7 +51,7 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h3>House Price Prediction<small><br></h3>
                 <p>Enter the values in the form given to predict house prices. 
                 <br>City name is a mandatory field. Other fields can be left blank.</p>
@@ -109,24 +109,20 @@
                 </ul>
                 </form>
             </div>
-            <div class="col-md-2">
-                <h3> Minimum Priced<br> Home </h3>
+            <div class="col-md-9">
+                <h3> Minimum Priced Home </h3>
                 <p>
                     {% for table in mintable %}
                         {{ table|safe }}
                     {% endfor %}
                 </p>
-            </div>
-            <div class="col-md-2">
-                <h3> Maximum Priced<br> Home </h3>
+                <h3> Maximum Priced Home </h3>
                 <p>
                     {% for table in maxtable %}
                         {{ table|safe }}
                     {% endfor %}
                 </p>
-            </div>
-            <div class="col-md-4">
-                <h3> Median Priced<br> Home </h3>
+                <h3> Median Priced Home </h3>
                 <p>
                     {% for table in mediantable %}
                         {{ table|safe }}
@@ -137,7 +133,7 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-3">
                 <h3><br>Feature Details<small><br></h3>
                 <p><b>City :</b> Name of the city in which the house is located</p>
                 <p><b>SQFT Living :</b> Square footage of the apartments interior living space</p>

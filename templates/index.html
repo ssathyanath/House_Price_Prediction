@@ -53,7 +53,7 @@
 -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2" background = >
+            <div class="col-md-3" background = >
                 <h3>House Price Prediction<br></h3>
                 <p>Enter the values in the form given to predict house prices. 
                     <br>City name is a mandatory field. 
@@ -105,6 +105,18 @@
                     </li>
                 </ul>
                 </form>
+            </div>
+            <div class="col-md-4">
+                <h2>Correlation between House Features & Price</h2>
+                <img src="../static/styles/House_Price_Corr.png" alt="House_Price_Corr" style='height:100%; width:100%; object-fit: contain'>  
+            </div>
+            <div class="col-md-5">
+                <h2>City by Median House Price</h2>
+                <img src="../static/styles/Median_Price.png" alt="House_Price_Corr" style='height:100%; width:100%;  object-fit: contain'>
+            </div>   
+        </div>
+        <div class="row">
+            <div class="col-md-3" background = >
                 <h3><br>Feature Details<br></h3>
                 <p><b>City :</b> Name of the city in which the house is located</p>
                 <p><b>SQFT Living :</b> Square footage of the apartments interior living space</p>
@@ -117,13 +129,8 @@
                         7 has an average level of construction and design, 
                         and 11- 13 have a high quality level of construction</p>
             </div>
-            <div class="col-md-4">
-                <h2>Correlation between House Features and House Price</h2>
-                <img src="../static/styles/House_Price_Corr.png" alt="House_Price_Corr" style='height:50%; width:100%; object-fit: contain'>  
-                <img src="../static/styles/Median_Price.png" alt="House_Price_Corr" style='height:50%; width:100%;  object-fit: contain'>
-            </div>
-            <div class="col-md-4">
-                <h2>Clustering of House Features</h2>
+            <div class="col-md-9">
+                <h3>Clustering of House Features<br></h3>
                 <iframe src="../static/styles/chart.html" style='height:100%; width:100%; object-fit: contain' >    
             </div>
         </div>

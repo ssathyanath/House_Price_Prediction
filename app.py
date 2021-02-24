@@ -57,7 +57,7 @@ def predict_api():
         # Fill in mean value for columns that have no data
         for column in pred_df:
             if pred_df.loc[0,column] == "":
-                pred_df.loc[0,column] = predict_filter_df.groupby("city_rank")[column].mean().values[0]
+                pred_df.loc[0,column] = predict_filter_df.groupby("city_rank")[column].mean().round(0).values[0]
 
         # Scale the prediction input dataset 
         pred_scaled = scalar_pk.transform(pred_df)
@@ -90,9 +90,10 @@ def predict_api():
                                            "view" : "View",
                                            "price" : "Price"})
         max_details["City"] = city
+        max_details["Price"] = max_details["Price"].map("${:,.0f}".format)
         max_details = max_details[["City","Price","SQFT Living","SQFT Above","SQFT Basement",
                                      "Bedrooms","Bathrooms","View","Grade"]]
-        max_details = max_details.transpose()
+        #max_details = max_details.transpose()
 
         # Get Maximum Price Row and format for html display 
         min_details = predict_filter_df[predict_filter_df.price == predict_filter_df.price.min()]
@@ -106,9 +107,10 @@ def predict_api():
                                            "view" : "View",
                                            "price" : "Price"})
         min_details["City"] = city
+        min_details["Price"] = min_details["Price"].map("${:,.0f}".format)
         min_details = min_details[["City","Price","SQFT Living","SQFT Above","SQFT Basement",
                                      "Bedrooms","Bathrooms","View","Grade"]]
-        min_details = min_details.transpose()
+        #min_details = min_details.transpose()
        
         # Get Maximum Price Row and format for html display 
         predict_filter_df["Median_Price"] = predict_filter_df.price.median()
@@ -125,15 +127,16 @@ def predict_api():
                                            "view" : "View",
                                            "price" : "Price"})
         median_details["City"] = city
+        median_details["Price"] = median_details["Price"].map("${:,.0f}".format)
         median_details = median_details[["City","Price","SQFT Living","SQFT Above","SQFT Basement",
                                      "Bedrooms","Bathrooms","View","Grade"]]
-        median_details = median_details.transpose()  
+        #median_details = median_details.transpose()  
 
         # Create html table for diaplay
-        pred_table = pred_details.to_html(classes='data', header="true", index=False, justify="left")
-        max_table = max_details.to_html(classes='maxdata',header=False, justify="left")
-        min_table = min_details.to_html(classes='maxdata', header=False,justify="left")
-        median_table = median_details.to_html(classes='maxdata',header=False,justify="left")
+        pred_table = pred_details.to_html(classes='data', header=True, index=False, justify="left")
+        max_table = max_details.to_html(classes='maxdata', header=True, index=False, justify="left")
+        min_table = min_details.to_html(classes='maxdata', header=True, index=False, justify="left")
+        median_table = median_details.to_html(classes='maxdata', header=True, index=False, justify="left")
 
         return render_template("predict.html", prediction=prediction[0],city_list=city_list,tables=[pred_table],
                                 maxtable=[max_table],mintable=[min_table],mediantable=[median_table])
