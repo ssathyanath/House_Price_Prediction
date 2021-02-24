@@ -4,6 +4,7 @@ from flask import Flask, request, render_template
 import xgboost
 import pickle
 import os
+import scraping
 
 # Create Flask App
 app = Flask(__name__)
@@ -140,6 +141,17 @@ def predict_api():
 
         return render_template("predict.html", prediction=prediction[0],city_list=city_list,tables=[pred_table],
                                 maxtable=[max_table],mintable=[min_table],mediantable=[median_table])
+
+# Scrape app route
+@app.route("/Scrape", methods=['GET',"POST"])
+def scrape_api():
+    scrape_date = scraping.scrape_all()
+    map_pic = scrape_date["featured_image"]
+    news_title = scrape_date["news_title"]
+    news_wrapper = scrape_date["news_wrapper"]
+    news_link = scrape_date["news_link"]
+    news_pic = scrape_date["news_pic"]
+    return render_template("scrape.html",map_pic=map_pic,news_title=news_title,news_wrapper=news_wrapper,news_link=news_link,news_pic=news_pic)
 
 if __name__ == '__main__':
     app.run()

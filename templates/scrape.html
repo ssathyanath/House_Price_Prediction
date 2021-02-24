@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+
+<body> 
+    <div class="jumbotron">
+        <h1>House Price Prediction</h1>
+        <h2>King County, Washington</h2>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+               <a style="font-size:30px;" href="https://www.kingcounty.gov/"><b>Official King County Website</b></a>
+               <p></p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h3><b>Map of King County, Washington</b><br></h3>
+                <img src="{{map_pic}}" class="img-responsive" alt="Responsive image" 
+                style='height:100%; width:100%;  object-fit: contain' />
+            </div>
+            <div class="col-md-4">
+                <h2><b>Latest News from Seattle, King County</b></h2>
+                <p></p>
+                <h2><b>{{news_title}}</b></h2>
+                <p style="font-size:30px;">{{news_wrapper}}</p>
+            </div>
+            <div class="col-md-2">
+                <a title={{news_title}} href={{news_link}}><img alt={{news_title}} src={{news_pic}} style='height:20%; width:100%;  object-fit: contain'/> </a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+</body>
+</html>
