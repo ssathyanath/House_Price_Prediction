@@ -25,13 +25,13 @@
 <body> 
 
     <div class="jumbotron">
-        <h1>House Price Prediction</h1>
-        <h2>King County, Washington</h2>
+        <h1><b>House Price Prediction</b></h1>
+        <h2><b>King County, Washington</b></h2>
     </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h3>Predicted house price is ${{prediction}}<small></h3>
+                <h3>Predicted house price is <b>${{prediction}}</b></h3>
                 <p>The predictions are based on the below values. 
                     For columns with no input, the mean value for the city was used in the prediction.</p>
                 <p>
@@ -52,9 +52,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                <h3>House Price Prediction<small><br></h3>
+                <h3><b>House Price Prediction</b><br></h3>
                 <p>Enter the values in the form given to predict house prices. 
-                <br>City name is a mandatory field. Other fields can be left blank.</p>
+                City name is a mandatory field. Other fields can be left blank.</p>
             </div>
         </div>
     </div>
@@ -110,19 +110,19 @@
                 </form>
             </div>
             <div class="col-md-9">
-                <h3> Minimum Priced Home </h3>
+                <h3><b> Minimum Priced Home</b> </h3>
                 <p>
                     {% for table in mintable %}
                         {{ table|safe }}
                     {% endfor %}
                 </p>
-                <h3> Maximum Priced Home </h3>
+                <h3><b> Maximum Priced Home</b> </h3>
                 <p>
                     {% for table in maxtable %}
                         {{ table|safe }}
                     {% endfor %}
                 </p>
-                <h3> Median Priced Home </h3>
+                <h3><b> Median Priced Home </b></h3>
                 <p>
                     {% for table in mediantable %}
                         {{ table|safe }}
@@ -134,7 +134,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                <h3><br>Feature Details<small><br></h3>
+                <h3><br><b>Feature Details</b><br></h3>
                 <p><b>City :</b> Name of the city in which the house is located</p>
                 <p><b>SQFT Living :</b> Square footage of the apartments interior living space</p>
                 <p><b>SQFT Above :</b> The square footage of the interior housing space that is above ground level </p>
@@ -149,7 +149,7 @@
             <div class="col-md-9">
                 <p><br></p>
                 <form action="{{url_for("scrape_api")}}" method="POST">
-                <button type="submit" style="width:100%;background-color:#89e68d">Learn About King County</button> 
+                <button type="submit" style="width:30%;background-color:#89e68d">Learn About King County</button> 
                 </form>
             </div>
         </div>
