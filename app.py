@@ -6,6 +6,8 @@ import pickle
 import os
 from splinter import Browser
 from bs4 import BeautifulSoup as soup
+from selenium import webdriver
+
 
 # Create Flask App
 app = Flask(__name__)
@@ -174,6 +176,13 @@ def scrape_api():
                     
         return news_title,news_wrapper,news_link,news_pic
 
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    
     # Initiate headless driver for deployment
     browser = Browser("chrome", executable_path="chromedriver", headless=True)
     news_title, news_wrapper,news_link,news_pic = county_news(browser)

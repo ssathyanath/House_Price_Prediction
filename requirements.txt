@@ -8,3 +8,4 @@ pandas==0.25.1
 SQLAlchemy>=1.3.9
 splinter>=0.14.0
 bs4>=0.0.1
+selenium>=3.141.0
