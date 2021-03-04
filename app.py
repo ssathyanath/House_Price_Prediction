@@ -185,7 +185,7 @@ def scrape_api():
 
     # Initiate headless driver for deployment
     browser = Browser("chrome", executable_path="chromedriver", headless=True)
-    news_title, news_wrapper,news_link,news_pic = county_news(driver)
+    news_title, news_wrapper,news_link,news_pic = county_news(browser)
     # scrape_date = scraping.scrape_all()
     # map_pic = scrape_date["featured_image"]
     # news_title = scrape_date["news_title"]
